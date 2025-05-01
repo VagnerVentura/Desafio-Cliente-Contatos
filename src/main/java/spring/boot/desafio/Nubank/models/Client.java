@@ -2,6 +2,8 @@ package spring.boot.desafio.Nubank.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,6 +30,7 @@ public class Client {
 	private String name;
 	
 	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonManagedReference
 	private List<Contact> contacts;
 	
 }
